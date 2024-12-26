@@ -8,8 +8,11 @@ class CustomButtomSheetBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 600,
-      color: const Color(0xff303030),
       width: double.infinity,
+      decoration: const BoxDecoration(
+          color: Color(0xff303030),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
