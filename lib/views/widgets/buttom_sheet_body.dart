@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:notes_app/constant.dart';
+import 'package:notes_app/views/widgets/custom_text_field.dart';
 
 class CustomButtomSheetBody extends StatelessWidget {
   const CustomButtomSheetBody({super.key});
@@ -10,9 +12,12 @@ class CustomButtomSheetBody extends StatelessWidget {
       height: 600,
       width: double.infinity,
       decoration: const BoxDecoration(
-          color: Color(0xff303030),
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+        color: Color(0xff303030),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -20,48 +25,16 @@ class CustomButtomSheetBody extends StatelessWidget {
             const Spacer(
               flex: 1,
             ),
-            TextField(
-              cursorColor: const Color(0xff53EBD6),
-              decoration: InputDecoration(
-                label: Text(
-                  "Title",
-                  style: GoogleFonts.poppins(
-                      color: const Color(0xff53EBD6), fontSize: 20),
-                ),
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 26, horizontal: 16),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Color(0xff53EBD6)),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
+            const CustomTextField(
+              padding: 26,
+              lableText: "Title",
             ),
             const Spacer(
               flex: 1,
             ),
-            TextField(
-              cursorColor: const Color(0xff53EBD6),
-              decoration: InputDecoration(
-                label: Text(
-                  "content",
-                  style: GoogleFonts.poppins(
-                      color: const Color(0xff53EBD6), fontSize: 20),
-                ),
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 54, horizontal: 16),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Color(0xff53EBD6)),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
+            const CustomTextField(
+              padding: 54,
+              lableText: "Content",
             ),
             const Spacer(
               flex: 6,
@@ -71,8 +44,8 @@ class CustomButtomSheetBody extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: const WidgetStatePropertyAll(
-                      Color(0xff53EBD6),
+                    backgroundColor: WidgetStatePropertyAll(
+                      kPrimaryColor,
                     ),
                     shape: WidgetStatePropertyAll(
                       RoundedRectangleBorder(
