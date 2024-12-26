@@ -5,24 +5,21 @@ import 'package:notes_app/helper/buildBorder.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
-    required this.padding,
-    required this.lableText,
+    this.maxLines = 1,
+    required this.hintText,
     super.key,
   });
-  final String lableText;
-  final double padding;
+  final String hintText;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLines: maxLines,
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
-          label: Text(
-            lableText,
-            style: GoogleFonts.poppins(color: kPrimaryColor, fontSize: 20),
-          ),
-          contentPadding:
-              EdgeInsets.symmetric(vertical: padding, horizontal: 16),
+          hintText: hintText,
+          hintStyle: GoogleFonts.poppins(color: kPrimaryColor, fontSize: 20),
           enabledBorder: buildBorder(color: Colors.white),
           focusedBorder: buildBorder(
             color: kPrimaryColor,

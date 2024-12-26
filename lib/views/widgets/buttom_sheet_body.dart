@@ -26,25 +26,25 @@ class CustomButtomSheetBody extends StatelessWidget {
               flex: 1,
             ),
             const CustomTextField(
-              padding: 26,
-              lableText: "Title",
+              hintText: "Title",
+              maxLines: 1,
             ),
             const Spacer(
               flex: 1,
             ),
             const CustomTextField(
-              padding: 54,
-              lableText: "Content",
+              maxLines: 5,
+              hintText: "Content",
             ),
             const Spacer(
-              flex: 6,
+              flex: 8,
             ),
             SizedBox(
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(
+                    backgroundColor: const WidgetStatePropertyAll(
                       kPrimaryColor,
                     ),
                     shape: WidgetStatePropertyAll(
@@ -63,7 +63,7 @@ class CustomButtomSheetBody extends StatelessWidget {
                   )),
             ),
             const Spacer(
-              flex: 1,
+              flex: 2,
             ),
           ],
         ),
