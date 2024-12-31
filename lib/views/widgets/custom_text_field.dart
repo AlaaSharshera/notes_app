@@ -5,7 +5,7 @@ import 'package:notes_app/helper/buildBorder.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
-    this.maxLines = 1,
+    required this.maxLines,
     required this.hintText,
     super.key,
   });
