@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:notes_app/constant.dart';
-import 'package:notes_app/helper/buildBorder.dart';
+import 'package:notes_app/helper/build_border.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -22,6 +22,8 @@ class CustomTextField extends StatelessWidget {
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return "field is required";
+        } else {
+          return null;
         }
       },
       cursorColor: kPrimaryColor,

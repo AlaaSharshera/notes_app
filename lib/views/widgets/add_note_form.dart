@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/custom_Button.dart';
+import 'package:notes_app/views/custom_button.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
 
 class AddNoteForm extends StatefulWidget {
