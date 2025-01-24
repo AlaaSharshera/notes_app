@@ -10,21 +10,22 @@ class CustomButtomSheetBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: BlocConsumer<AddnoteCubit, AddnoteCubitState>(
-        listener: (context, state) {
-          if (state is AddNoteCubitSuccessState) {
-            Navigator.pop(context);
-          } else if (state is AddNoteCubitFailureState) {
-            print("Try adding note a gain");
-          }
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-              inAsyncCall: state is AddNoteCubitLoadingState ? true : false,
-              child: AddNoteForm());
-        },
-      ),
+    return BlocConsumer<AddnoteCubit, AddnoteCubitState>(
+      listener: (context, state) {
+        if (state is AddNoteCubitSuccessState) {
+          Navigator.pop(context);
+        } else if (state is AddNoteCubitFailureState) {
+          print("Try adding note a gain");
+        }
+      },
+      builder: (context, state) {
+        return ModalProgressHUD(
+          inAsyncCall: state is AddNoteCubitLoadingState ? true : false,
+          child: SingleChildScrollView(
+            child: AddNoteForm(),
+          ),
+        );
+      },
     );
   }
 }
