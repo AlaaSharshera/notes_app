@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/constant.dart';
+import 'package:notes_app/cubits/addnote_cubit.dart/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/views/widgets/buttom_sheet_body.dart';
 import 'package:notes_app/views/widgets/notes_view_body.dart';
 
@@ -8,28 +10,32 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-              backgroundColor: const Color(0xff303030),
-              isScrollControlled: true,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+                backgroundColor: const Color(0xff303030),
+                isScrollControlled: true,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
                 ),
-              ),
-              context: context,
-              builder: (context) {
-                return const CustomButtomSheetBody();
-              });
-        },
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-        backgroundColor: kPrimaryColor,
-        child: const Icon(Icons.add),
+                context: context,
+                builder: (context) {
+                  return const CustomButtomSheetBody();
+                });
+          },
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+          backgroundColor: kPrimaryColor,
+          child: const Icon(Icons.add),
+        ),
+        body: const NotesViewBody(),
       ),
-      body: const NotesViewBody(),
     );
   }
 }
