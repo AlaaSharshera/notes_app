@@ -4,8 +4,6 @@ abstract class NotesStates {}
 
 class NotesIntial extends NotesStates {}
 
-class NotesLoadingState extends NotesStates {}
-
 class NotesSuccessState extends NotesStates {
   final List<NotesModel> notes;
   NotesSuccessState(this.notes);
