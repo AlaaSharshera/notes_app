@@ -41,7 +41,9 @@ class CustomNotesCard extends StatelessWidget {
                     fontSize: 18,
                   )),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  notesModel.delete();
+                },
                 icon: const Icon(
                   Icons.delete,
                   size: 36,
