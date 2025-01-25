@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/addnote_cubit.dart/notes_cubit/notes_cubit.dart';
-import 'package:notes_app/cubits/addnote_cubit.dart/notes_cubit/notes_states.dart';
+
 import 'package:notes_app/models/notes_model.dart';
 import 'package:notes_app/views/widgets/custom_notes_card.dart';
 
@@ -12,7 +12,7 @@ class CustomNotesListview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NotesCubit, NotesStates>(
+    return BlocBuilder<NotesCubit, List<NotesModel>>(
       builder: (context, state) {
         List<NotesModel> notes =
             BlocProvider.of<NotesCubit>(context).notes ?? [];
