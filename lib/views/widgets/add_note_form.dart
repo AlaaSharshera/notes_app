@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/addnote_cubit.dart/addnote_cubit.dart';
 import 'package:notes_app/models/notes_model.dart';
 import 'package:notes_app/views/custom_button.dart';
+import 'package:notes_app/views/widgets/colors_listview.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -51,7 +52,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             const SizedBox(
               height: 16,
             ),
-            ColorsListView(),
+            const ColorsListView(),
             const SizedBox(
               height: 48,
             ),
@@ -78,23 +79,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class ColorsListView extends StatelessWidget {
-  const ColorsListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      child: ListView.builder(
-          itemCount: 10,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return const ColorItem();
-          }),
     );
   }
 }
